@@ -29,7 +29,6 @@ let g:mapleader = ','
 
 " 开启语法高亮
 syntax on
-set nocompatible
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
