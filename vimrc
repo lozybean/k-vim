@@ -29,8 +29,7 @@ let g:mapleader = ','
 
 " 开启语法高亮
 syntax on
-
-
+set nocompatible
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
@@ -91,7 +90,6 @@ set cursorline          " 突出显示当前行
 "好处：误删什么的，如果以前屏幕打开，可以找回
 set t_ti= t_te=
 
-
 "- 则点击光标不会换,用于复制
 set mouse-=a             " 鼠标暂不启用, 键盘党....
 " set mouse=a                 " Automatically enable mouse usage
@@ -128,6 +126,7 @@ set whichwrap+=<,>,h,l
 "显示当前的行号列号：
 set ruler
 ""在状态栏显示正在输入的命令
+
 set showcmd
 " 左下角显示当前vim模式
 set showmode
@@ -210,20 +209,9 @@ set nrformats=
 
 
 " 相对行号      行号变成相对，可以用 nj  nk   进行跳转 5j   5k 上下跳5行
-set relativenumber number
-au FocusLost * :set norelativenumber number
-au FocusGained * :set relativenumber
-" 插入模式下用绝对行号, 普通模式下用相对
-autocmd InsertEnter * :set norelativenumber number
-autocmd InsertLeave * :set relativenumber
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set norelativenumber number
-  else
-    set relativenumber
-  endif
-endfunc
-nnoremap <C-n> :call NumberToggle()<cr>
+" set relativenumber 
+set number
+"nnoremap <C-n> :call NumberToggle()<cr>
 
 
 "==========================================
@@ -286,10 +274,10 @@ endif
 " 主要按键重定义
 
 " 关闭方向键, 强迫自己用 hjkl
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
+"map <Left> <h>
+"map <Right> <l>
+"map <Up> <j>
+"map <Down> <k>
 
 "Treat long lines as break lines (useful when moving around in them)
 "se swap之后，同物理行上线直接跳
@@ -311,12 +299,13 @@ noremap <F1> <Esc>"
 
 ""为方便复制，用<F2>开启/关闭行号显示:
 function! HideNumber()
-  if(&relativenumber == &number)
-    set relativenumber! number!
-  elseif(&number)
+ "" if(&relativenumber == &number)
+ ""   set relativenumber! number!
+  "else
+  if(&number)
     set number!
   else
-    set relativenumber!
+    set number!
   endif
   set number?
 endfunc
@@ -347,7 +336,7 @@ noremap L $
 
 "Map ; to : and save a million keystrokes
 " ex mode commands made easy 用于快速进入命令行
-nnoremap ; :
+"nnoremap ; :
 
 
 " 命令行模式增强，ctrl - a到行首， -e 到行尾
@@ -389,8 +378,8 @@ noremap <silent><leader>/ :nohls<CR>
 " :b1 :b2   :bf :bl
 nnoremap [b :bprevious<cr>
 nnoremap ]b :bnext<cr>
-noremap <left> :bp<CR>
-noremap <right> :bn<CR>
+"noremap <left> :bp<CR>
+"noremap <right> :bn<CR>
 
 
 " tab 操作
@@ -552,6 +541,7 @@ function! AutoSetFileHead()
     "如果文件类型为python
     if &filetype == 'python'
         call setline(1, "\#!/usr/bin/env python")
+        call append(1,"__author__ liangzb")
         call append(1, "\# encoding: utf-8")
     endif
 
@@ -603,11 +593,10 @@ endif
 " theme主题
 set background=dark
 set t_Co=256
-colorscheme solarized
+" colorscheme solarized
 " colorscheme Tomorrow-Night
-" colorscheme Tomorrow-Night-Bright
+ colorscheme Tomorrow-Night-Bright
 " colorscheme desert
-
 
 
 " 设置标记一列的背景颜色和数字一行颜色一致
@@ -624,3 +613,5 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
+
+
