@@ -143,7 +143,7 @@ set laststatus=2
 "显示行号：
 set number
 " 取消换行。
-set nowrap
+" set nowrap
 
 " 括号配对情况,跳转并高亮一下匹配的括号
 set showmatch
@@ -593,7 +593,7 @@ set background=dark
 set t_Co=256
 " colorscheme solarized
 " colorscheme Tomorrow-Night
- colorscheme Tomorrow-Night-Bright
+colorscheme Tomorrow-Night-Bright
 " colorscheme desert
 
 

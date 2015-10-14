@@ -170,8 +170,8 @@ let g:closetag_html_style=1
 " ################### 快速编码 ###################
 
 " 快速注释
-Bundle 'scrooloose/nerdcommenter'
-let g:NERDSpaceDelims=1
+" Bundle 'scrooloose/nerdcommenter'
+" let g:NERDSpaceDelims=1
 
 
 " 快速加入修改环绕字符
@@ -205,26 +205,24 @@ map <Leader><leader>l <Plug>(easymotion-lineforward)
 " 重复上一次操作, 类似repeat插件, 很强大
 map <Leader><leader>. <Plug>(easymotion-repeat)
 
-
-
-Bundle 'vim-scripts/matchit.zip'
+" Bundle 'vim-scripts/matchit.zip'
 
 " 显示marks - 方便自己进行标记和跳转
 " m[a-zA-Z] add mark
 " '[a-zA-Z] go to mark
 " m<Space>  del all marks
-Bundle "kshenoy/vim-signature"
+" Bundle "kshenoy/vim-signature"
 
 " ################### 文本对象 ###################
 
 " 支持自定义文本对象
-Bundle 'kana/vim-textobj-user.git'
+" Bundle 'kana/vim-textobj-user.git'
 " 增加行文本对象: l   dal yal cil
-Bundle 'kana/vim-textobj-line'
+" Bundle 'kana/vim-textobj-line'
 " 增加文件文本对象: e   dae yae cie
-Bundle 'kana/vim-textobj-entire.git'
+" Bundle 'kana/vim-textobj-entire.git'
 " 增加缩进文本对象: i   dai yai cii - 相同缩进属于同一块
-Bundle 'kana/vim-textobj-indent.git'
+" Bundle 'kana/vim-textobj-indent.git'
 
 " ################### 快速选中 ###################
 " 选中区块
@@ -235,13 +233,13 @@ vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
 " 多光标选中编辑
-Bundle 'terryma/vim-multiple-cursors'
-let g:multi_cursor_use_default_mapping=0
+" Bundle 'terryma/vim-multiple-cursors'
+" let g:multi_cursor_use_default_mapping=0
 " Default mapping
-let g:multi_cursor_next_key='<C-m>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
+" let g:multi_cursor_next_key='<C-m>'
+" let g:multi_cursor_prev_key='<C-p>'
+" let g:multi_cursor_skip_key='<C-x>'
+" let g:multi_cursor_quit_key='<Esc>'
 
 " ################### 功能相关 ###################
 
@@ -280,36 +278,36 @@ let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['funky']
 
 " 类似sublimetext的搜索
-Bundle "dyng/ctrlsf.vim"
+" Bundle "dyng/ctrlsf.vim"
 " In CtrlSF window:
 " 回车/o, 打开
 " t       在tab中打开(建议)
 " T - Lkie t but focus CtrlSF window instead of opened new tab.
 " q - Quit CtrlSF window.
-nmap \ <Plug>CtrlSFCwordPath<CR>
+" nmap \ <Plug>CtrlSFCwordPath<CR>
 " let g:ctrlsf_position = 'below'
 " let g:ctrlsf_winsize = '30%'
-let g:ctrlsf_auto_close = 0
-let g:ctrlsf_confirm_save = 0
+" let g:ctrlsf_auto_close = 0
+" let g:ctrlsf_confirm_save = 0
 " Note: cannot use <CR> or <C-m> for open
 " Use : <sapce> or <tab>
-let g:ctrlsf_mapping = {
-    \ "open"  : "<Space>",
-    \ "openb" : "O",
-    \ "tab"   : "t",
-    \ "tabb"  : "T",
-    \ "prevw" : "p",
-    \ "quit"  : "q",
-    \ "next"  : "<C-J>",
-    \ "prev"  : "<C-K>",
-    \ "pquit" : "q",
-    \ }
-
+"let g:ctrlsf_mapping = {
+"    \ "open"  : "<Space>",
+"    \ "openb" : "O",
+"    \ "tab"   : "t",
+"    \ "tabb"  : "T",
+"    \ "prevw" : "p",
+"    \ "quit"  : "q",
+"    \ "next"  : "<C-J>",
+"    \ "prev"  : "<C-K>",
+"    \ "pquit" : "q",
+"    \ }
+"
 
 " git.  git操作还是习惯命令行,vim里面处理简单diff编辑操作
 " :Gdiff  :Gstatus :Gvsplit
-Bundle 'tpope/vim-fugitive'
-nnoremap <leader>ge :Gdiff<CR>
+" Bundle 'tpope/vim-fugitive'
+" nnoremap <leader>ge :Gdiff<CR>
 " not ready to open
 " <leader>gb maps to :Gblame<CR>
 " <leader>gs maps to :Gstatus<CR>
@@ -389,9 +387,9 @@ let g:solarized_visibility="normal"
 " let g:solarized_termcolors=256
 
 " 主题 molokai
-Bundle 'tomasr/molokai'
+" Bundle 'tomasr/molokai'
 " monokai原始背景色
-let g:molokai_original = 1
+" let g:molokai_original = 1
 
 " 主题 tomorrow
 Bundle 'chriskempson/vim-tomorrow-theme'
@@ -517,7 +515,7 @@ map <F10> :QuickRun<CR>
 
 " python fly check, 弥补syntastic只能打开和保存才检查语法的不足
 Bundle 'kevinw/pyflakes-vim'
-let g:pyflakes_use_quickfix = 1
+let g:pyflakes_use_quickfix = 0
 
 " for python.vim syntax highlight
 Bundle 'hdima/python-syntax'
@@ -590,12 +588,12 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 " ####### temp #######
 " python code format
 autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
-" Bundle 'mindriot101/vim-yapf'
-" scriptencoding utf-8
+Bundle 'mindriot101/vim-yapf'
+scriptencoding utf-8
 " let g:yapf_style = "google"
-" let g:yapf_style = "pep8"
+let g:yapf_style = "pep8"
 " setenv PYTHONIOENCODING UTF-8
-" nnoremap <leader>y :call Yapf()<cr>
+nnoremap <leader>y :call Yapf()<cr>
 
 " Bundle 'amoffat/snake'
 " I do not want to change much for default registers, just default behavior
