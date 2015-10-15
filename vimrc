@@ -154,7 +154,7 @@ set matchtime=2
 " 高亮search命中的文本。
 set hlsearch
 " 打开增量搜索模式,随着键入即时搜索
-set incsearch
+" set incsearch
 " 搜索时忽略大小写
 set ignorecase
 " 有一个或以上大写字母时仍大小写敏感
@@ -438,6 +438,8 @@ autocmd TabLeave * let g:last_active_tab = tabpagenr()
 "Reselect visual block after indent/outdent.调整缩进后自动选中，方便再次操作
 vnoremap < <gv
 vnoremap > >gv
+vnoremap <leader>v <ESC>
+nnoremap <leader>v <C-v>
 
 " y$ -> Y Make Y behave like other capitals
 map Y y$
@@ -451,7 +453,7 @@ map Y y$
 map <Leader>sa ggVG"
 
 " select block
-nnoremap <leader>v V`}
+nnoremap <leader>sb V`}
 
 " w!! to sudo & write a file
 cmap w!! w !sudo tee >/dev/null %
@@ -517,7 +519,6 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 autocmd BufRead,BufNew *.md,*.mkd,*.markdown  set filetype=markdown.mkd
-autocmd BufRead,BufNew *.r,*.R,*.Rtp,*.Rscript set filetype=r
 
 
 " 保存python文件时删除多余空格
