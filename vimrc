@@ -438,7 +438,7 @@ autocmd TabLeave * let g:last_active_tab = tabpagenr()
 "Reselect visual block after indent/outdent.调整缩进后自动选中，方便再次操作
 vnoremap < <gv
 vnoremap > >gv
-vnoremap <leader>v <ESC>
+vnoremap v <ESC>
 nnoremap <leader>v <C-v>
 
 " y$ -> Y Make Y behave like other capitals
