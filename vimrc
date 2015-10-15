@@ -519,6 +519,7 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 autocmd BufRead,BufNew *.md,*.mkd,*.markdown  set filetype=markdown.mkd
+autocmd BufRead,BufNew *.R,*.r,*.Rtp,*.rtp,*.rscript,*.Rscript set filetype=r
 
 
 " 保存python文件时删除多余空格
