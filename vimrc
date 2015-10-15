@@ -528,9 +528,9 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
-
 " 定义函数AutoSetFileHead，自动插入文件头
 autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
+nnoremap <leader>as :call AutoSetFileHead() <CR>
 function! AutoSetFileHead()
     "如果文件类型为.sh文件
     if &filetype == 'sh'
