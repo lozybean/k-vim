@@ -238,7 +238,7 @@ set formatoptions+=B
 "==========================================
 " others 其它设置
 "==========================================
-autocmd! bufwritepost _vimrc source % " vimrc文件修改之后自动加载。 windows。
+" autocmd! bufwritepost _vimrc source % " vimrc文件修改之后自动加载。 windows。
 autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载。 linux。
 
 " 自动补全配置
@@ -251,7 +251,7 @@ set wildmenu
 set wildignore=*.o,*~,*.pyc,*.class
 
 "离开插入模式后自动关闭预览窗口
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "回车即选中当前项
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 
@@ -364,7 +364,7 @@ nnoremap # *
 nnoremap * #
 
 " for # indent, python文件中输入新行时#号注释不切回行首
-autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#
+" autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#
 
 
 " 去掉搜索高亮
@@ -529,10 +529,11 @@ fun! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+noremap <silent><leader>rs :call <SID>StripTrailingWhitespaces()
+" autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " 定义函数AutoSetFileHead，自动插入文件头
-autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
+" StripTrailingWhitespacess)autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
 nnoremap <leader>as :call AutoSetFileHead() <CR>
 function! AutoSetFileHead()
     "如果文件类型为.sh文件

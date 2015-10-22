@@ -402,7 +402,7 @@ map <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
 "close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 " s/v 分屏打开文件
 let g:NERDTreeMapOpenSplit = 's'
 let g:NERDTreeMapOpenVSplit = 'v'
@@ -587,7 +587,7 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 
 " ####### temp #######
 " python code format
-autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
+" autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
 Bundle 'mindriot101/vim-yapf'
 scriptencoding utf-8
 " let g:yapf_style = "google"
