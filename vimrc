@@ -208,7 +208,7 @@ set nrformats=
 
 
 " 相对行号      行号变成相对，可以用 nj  nk   进行跳转 5j   5k 上下跳5行
-" set relativenumber 
+" set relativenumber
 set number
 "nnoremap <C-n> :call NumberToggle()<cr>
 
@@ -364,7 +364,7 @@ nnoremap # *
 nnoremap * #
 
 " for # indent, python文件中输入新行时#号注释不切回行首
-autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#
+inoremap # X<c-h>#
 
 
 " 去掉搜索高亮
