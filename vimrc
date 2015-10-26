@@ -364,7 +364,7 @@ nnoremap # *
 nnoremap * #
 
 " for # indent, python文件中输入新行时#号注释不切回行首
-" autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#
+autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#
 
 
 " 去掉搜索高亮
@@ -529,7 +529,7 @@ fun! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-noremap <silent><leader>rs :call <SID>StripTrailingWhitespaces()
+noremap <silent><leader>rs :call <SID>StripTrailingWhitespaces()<CR>
 " autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " 定义函数AutoSetFileHead，自动插入文件头
