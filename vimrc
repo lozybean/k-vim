@@ -347,7 +347,7 @@ cnoremap <C-e> <End>
 " 搜索相关
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
+" map <space> /
 " 进入搜索Use sane regexes"
 nnoremap / /\v
 vnoremap / /\v
@@ -363,7 +363,7 @@ nnoremap <silent> g* g*zz
 nnoremap # *
 nnoremap * #
 
-" for # indent, python文件中输入新行时#号注释不切回行首
+" for # indent, 输入新行时#号注释不切回行首
 inoremap # X<c-h>#
 
 
@@ -530,28 +530,40 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 noremap <silent><leader>rs :call <SID>StripTrailingWhitespaces()<CR>
-" autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " 定义函数AutoSetFileHead，自动插入文件头
-" StripTrailingWhitespacess)autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
 nnoremap <leader>as :call AutoSetFileHead() <CR>
 function! AutoSetFileHead()
     "如果文件类型为.sh文件
     if &filetype == 'sh'
         call setline(1, "\#!/bin/bash")
+        normal 2G
+        normal o
     endif
 
     "如果文件类型为python
     if &filetype == 'python'
         call setline(1, "\#!/usr/bin/env python")
         call append(1, "\# -*- coding: utf-8 -*- \#")
+        normal 3G
+        normal o
     endif
 
-    normal G
-    normal o
-    normal o
-endfunc
+    "html文件
+    if &filetype == 'html'
+        call setline(1,"<!DOCTYPE html>")
+        call append(1,'<html lang="cn">')
+        call append(2,'<head>')
+        call append(3,'    <title> </title>')
+        call append(4,'    <meta charset="utf-8">')
+        call append(5,'</head>')
+        call append(6,'<body>')
+        call append(7,'</body>')
+        normal 8G
+        normal o
+    endif
 
+endfunc
 
 " set some keyword to highlight
 if has("autocmd")
@@ -615,5 +627,4 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
-
 
