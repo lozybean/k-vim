@@ -1,0 +1,41 @@
+snippet !html "html description"
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <title>${1}</title>
+    <meta charset="utf-8">
+</head>
+<body>
+	${2}
+</body>
+endsnippet
+
+snippet head "head description" <options>
+<head>
+	${1}
+</head>
+endsnippet
+
+snippet title "title description" <options>
+<title>
+	${1}
+</title>
+endsnippet
+
+snippet div "div description"
+<div class="${1}">
+	${2}
+</div>
+${3}
+endsnippet
+
+snippet css "css description" <options>
+<link href="${1}" rel="stylesheet"/>
+${2}
+endsnippet
+
+snippet js "js description" <options>
+<script src="${1}"></script>
+${2}
+endsnippet
+

@@ -40,12 +40,6 @@ set laststatus=2
 set number
 set showmatch
 set matchtime=2
-vnoremap $1 <esc>`>a)<esc>`<i(<esc>
-vnoremap $2 <esc>`>a]<esc>`<i[<esc>
-vnoremap $3 <esc>`>a}<esc>`<i{<esc>
-vnoremap $4 <esc>`>a><esc>`<i<<esc>
-vnoremap $" <esc>`>a"<esc>`<i"<esc>
-vnoremap $' <esc>`>a'<esc>`<i'<esc>
 nnoremap / /\v
 vnoremap / /\v
 nnoremap <silent> n nzz
@@ -178,32 +172,6 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 noremap <silent><leader>rs :call <SID>StripTrailingWhitespaces()<CR>
-nnoremap <leader>as :call AutoSetFileHead() <CR>
-function! AutoSetFileHead()
-    if &filetype == 'sh'
-        call setline(1, "\#!/bin/bash")
-        normal 2G
-        normal o
-    endif
-    if &filetype == 'python'
-        call setline(1, "\#!/usr/bin/env python")
-        call append(1, "\# -*- coding: utf-8 -*- \#")
-        normal 3G
-        normal o
-    endif
-    if &filetype == 'html'
-        call setline(1,"<!DOCTYPE html>")
-        call append(1,'<html lang="cn">')
-        call append(2,'<head>')
-        call append(3,'    <title> </title>')
-        call append(4,'    <meta charset="utf-8">')
-        call append(5,'</head>')
-        call append(6,'<body>')
-        call append(7,'</body>')
-        normal 8G
-        normal o
-    endif
-endfunc
 if has("autocmd")
   if v:version > 701
     autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')

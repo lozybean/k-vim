@@ -1,6 +1,9 @@
 ########### header and bottom
-snippet code "coding:utf-8"
-# coding: utf-8
+snippet head "coding:utf-8"
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- \#
+
+${1}
 endsnippet
 
 snippet main "if main"
@@ -48,16 +51,16 @@ snippet s "self."
 self.${1}
 endsnippet
 
-snippet p "print"
-print ${1}
+snippet p "print()"
+print(${1})
 endsnippet
 
 snippet pr "print "
-print "${1}"
+print("${1}")
 endsnippet
 
 snippet pri "print ''"
-print '${1}'
+print('${1}')
 endsnippet
 
 snippet prt "print trace"
@@ -132,10 +135,10 @@ endsnippet
 
 snippet doc "docstring"
 """
-@Author: ${1:`wklken`}
-@Email: ${2:`wklken@yeah.net`}
-@Date: ${3}
-@Desc: ${4}
+@Author: liangzb
+@Email: lozybean@163.com
+@Date: ${1}
+@Desc: ${2}
 """
 endsnippet
 
