@@ -148,12 +148,11 @@ set matchtime=2
 " yi' yi" yi( yi[ yi{ yi< 复制括号中的内容
 " vi' vi" vi( vi[ vi{ vi< 选中括号中的内容
 " 括号快速插入
-vnoremap $1 <esc>`>a)<esc>`<i(<esc>
-vnoremap $2 <esc>`>a]<esc>`<i[<esc>
-vnoremap $3 <esc>`>a}<esc>`<i{<esc>
-vnoremap $4 <esc>`>a><esc>`<i<<esc>
-vnoremap $" <esc>`>a"<esc>`<i"<esc>
-vnoremap $' <esc>`>a'<esc>`<i'<esc>
+" 使用surround插件
+" ds' ds" ds( ds{ 等：删除
+" cs'" cs"( 等：修改
+" yss{ ysw{ ysL{ 等：插入
+" visual 模式下：S插入 
 
 "==========================================
 " 搜索相关
