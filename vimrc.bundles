@@ -95,7 +95,8 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
 
 " 跳转到定义处, 分屏打开
-let g:ycm_goto_buffer_command = 'horizontal-split'
+" let g:ycm_goto_buffer_command = 'vertical-split'
+let g:ycm_goto_buffer_command = 'new-tab'
 " nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
@@ -119,40 +120,40 @@ let g:ycm_filetype_blacklist = {
       \}
 
 
-" 代码片段快速插入 (snippets中,是代码片段资源,需要学习)
-Bundle 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-Bundle 'honza/vim-snippets'
-
-let g:UltiSnipsExpandTrigger       = "<tab>"
-let g:UltiSnipsJumpForwardTrigger  = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-let g:UltiSnipsSnippetDirectories  = ['UltiSnips']
-let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
-" 定义存放代码片段的文件夹 .vim/UltiSnips下，使用自定义和默认的，将会的到全局，有冲突的会提示
-" 进入对应filetype的snippets进行编辑
-map <leader>us :UltiSnipsEdit<CR>
-
-" ctrl+j/k 进行选择
-func! g:JInYCM()
-    if pumvisible()
-        return "\<C-n>"
-    else
-        return "\<c-j>"
-    endif
-endfunction
-
-func! g:KInYCM()
-    if pumvisible()
-        return "\<C-p>"
-    else
-        return "\<c-k>"
-    endif
-endfunction
-inoremap <c-j> <c-r>=g:JInYCM()<cr>
-au BufEnter,BufRead * exec "inoremap <silent> " . g:UltiSnipsJumpBackwordTrigger . " <C-R>=g:KInYCM()<cr>"
-let g:UltiSnipsJumpBackwordTrigger = "<c-k>"
-
+"" 代码片段快速插入 (snippets中,是代码片段资源,需要学习)
+"Bundle 'SirVer/ultisnips'
+"" Snippets are separated from the engine. Add this if you want them:
+"Bundle 'honza/vim-snippets'
+"
+"let g:UltiSnipsExpandTrigger       = "<tab>"
+"let g:UltiSnipsJumpForwardTrigger  = "<tab>"
+"let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+"let g:UltiSnipsSnippetDirectories  = ['UltiSnips']
+"let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+"" 定义存放代码片段的文件夹 .vim/UltiSnips下，使用自定义和默认的，将会的到全局，有冲突的会提示
+"" 进入对应filetype的snippets进行编辑
+"map <leader>us :UltiSnipsEdit<CR>
+"
+"" ctrl+j/k 进行选择
+"func! g:JInYCM()
+"    if pumvisible()
+"        return "\<C-n>"
+"    else
+"        return "\<c-j>"
+"    endif
+"endfunction
+"
+"func! g:KInYCM()
+"    if pumvisible()
+"        return "\<C-p>"
+"    else
+"        return "\<c-k>"
+"    endif
+"endfunction
+"inoremap <c-j> <c-r>=g:JInYCM()<cr>
+"au BufEnter,BufRead * exec "inoremap <silent> " . g:UltiSnipsJumpBackwordTrigger . " <C-R>=g:KInYCM()<cr>"
+"let g:UltiSnipsJumpBackwordTrigger = "<c-k>"
+"
 
 " 自动补全单引号，双引号等
 Bundle 'Raimondi/delimitMate'
@@ -178,10 +179,6 @@ let g:closetag_html_style=1
 Bundle 'tpope/vim-surround'
 " for repeat -> enhance surround.vim, . to repeat command
 Bundle 'tpope/vim-repeat'
-
-" 快速去行尾空格 [, + <Space>]
-Bundle 'bronson/vim-trailing-whitespace'
-map <leader><space> :FixWhitespace<cr>
 
 " 快速赋值语句对齐
 Bundle 'junegunn/vim-easy-align'
