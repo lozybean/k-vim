@@ -87,6 +87,7 @@ set ffs=unix,dos,mac
 set formatoptions+=m
 set formatoptions+=B
 autocmd! bufwritepost .vimrc source %
+set completeopt=longest,menu
 set wildmenu
 set wildignore=*.o,*~,*.pyc,*.class
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
