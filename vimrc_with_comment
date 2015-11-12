@@ -509,6 +509,9 @@ if has("gui_running")
     if has("gui_gtk2")   "GTK2
         set guifont=Monaco\ 12,Monospace\ 12
     endif
+	if has("gui_macvim")
+		set guifont=Bitstream_Vera_Sans_Mono:h14:cANSI
+	endif
     set guioptions-=T
     set guioptions+=e
     set guioptions-=r
@@ -518,6 +521,10 @@ if has("gui_running")
     set linespace=2
     set noimd
     set t_Co=256
+	set mouse=a
+endif
+if has("gui_macvim")
+	set imdisable
 endif
 
 " allows cursor change in tmux mode
