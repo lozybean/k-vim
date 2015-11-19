@@ -584,12 +584,15 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 " ####### temp #######
 " python code format
 " autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
-Bundle 'mindriot101/vim-yapf'
-scriptencoding utf-8
+" autocmd FileType python nnoremap <leader>y :$!autopep8 -i expand("%")<Cr>
+autocmd FileType python setlocal formatprg=autopep8\ -
+noremap <leader>y gggqG<cr>
+" Bundle 'mindriot101/vim-yapf'
+" scriptencoding utf-8
 " let g:yapf_style = "google"
-let g:yapf_style = "pep8"
+" let g:yapf_style = "pep8"
 " setenv PYTHONIOENCODING UTF-8
-nnoremap <leader>y :call Yapf()<cr>
+" nnoremap <leader>y :call Yapf()<cr>
 
 " Bundle 'amoffat/snake'
 " I do not want to change much for default registers, just default behavior

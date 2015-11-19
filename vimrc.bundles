@@ -193,7 +193,5 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 Bundle 'nono/jquery.vim'
 Bundle 'Glench/Vim-Jinja2-Syntax'
-Bundle 'mindriot101/vim-yapf'
-scriptencoding utf-8
-let g:yapf_style = "pep8"
-nnoremap <leader>y :call Yapf()<cr>
+autocmd FileType python setlocal formatprg=autopep8\ -
+noremap <leader>y gggqG<cr>
