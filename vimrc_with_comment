@@ -511,6 +511,7 @@ if has("gui_running")
     endif
 	if has("gui_macvim")
 		set guifont=Bitstream_Vera_Sans_Mono:h14:cANSI
+		set guifont=幼圆:h16:cGB2312
 	endif
     set guioptions-=T
     set guioptions+=e
